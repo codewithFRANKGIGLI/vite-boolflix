@@ -1,5 +1,5 @@
 <template>
-    <AppHeader></AppHeader>
+    <AppHeader @searchClick="getMoviesFromApi"></AppHeader>
     <AppMain></AppMain>
 </template>
 
@@ -20,14 +20,22 @@
             }
         },
         methods: {
-            getDataMoviesFromApi() {
-                axios.get('https://api.themoviedb.org/3/search/movie?api_key=612e3f2fe173487edf095e3b2629965d')
+            getMoviesFromApi() {
+                const queryParams = {
+                    api_key:'612e3f2fe173487edf095e3b2629965d',
+                };
+                if (store.inputSearch !== '') {
+                    queryParams.query = store.inputSearch;
+                }
+                axios.get('https://api.themoviedb.org/3/search/movie',{
+                    params: queryParams
+                })
+                
                 .then((response) => {
-                    
+                    this.store.moviesArray = response.data.results;
                 })
             }
         },
-        
     }
 </script>
 
