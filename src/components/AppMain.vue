@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <AppCard v-for="movie in store.moviesArray"></AppCard>
+    <div class="container d-flex flex-wrap justify-content-center gap-2">
+        <AppCard v-for="movie in store.moviesArray" :movieInfo="movie"></AppCard>
     </div>
 </template>
 
