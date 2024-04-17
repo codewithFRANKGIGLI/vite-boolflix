@@ -1,33 +1,23 @@
 <template>
     <AppHeader></AppHeader>
+    <AppMain></AppMain>
 </template>
 
 <script>
     import AppHeader from './components/AppHeader.vue';
-    import axios from 'axios';
+    import AppMain from './components/AppMain.vue';
 
     export default {
         components: {
             AppHeader,
+            AppMain
+        },
+        data() {
+            return {
+                
+            }
         }
-    },
-    data() {
-        return {
-
-        }
-    },
-    methods: {
-
-    },
-    mounted() {
-
-    },
-    computed: {
-
-    },
-    created() {
-
-    },
+    }
 </script>
 
 <style lang="scss" scoped>
