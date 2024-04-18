@@ -1,5 +1,5 @@
 <template>
-    <AppHeader @searchClick="getMoviesFromApi"></AppHeader>
+    <AppHeader @searchClick="getMoviesFromApi(), getSeriesFromApi()"></AppHeader>
     <AppMain></AppMain>
 </template>
 
@@ -33,6 +33,21 @@
                 
                 .then((response) => {
                     this.store.moviesArray = response.data.results;
+                })
+            },
+            getSeriesFromApi() {
+                const queryParams = {
+                    api_key:'612e3f2fe173487edf095e3b2629965d',
+                };
+                if (store.inputSearch !== '') {
+                    queryParams.query = store.inputSearch;
+                }
+                axios.get('https://api.themoviedb.org/3/search/tv',{
+                    params: queryParams
+                })
+                
+                .then((response) => {
+                    this.store.seriesArray = response.data.results;
                 })
             }
         },
