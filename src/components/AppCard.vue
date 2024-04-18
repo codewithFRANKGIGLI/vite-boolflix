@@ -1,5 +1,5 @@
 <template>
-    <div class="card text-white lh-lg myTextShadow" style="width: 18rem; height: 27rem;">
+    <div class="card overflow-auto text-white lh-lg myTextShadow" style="width: 18rem; height: 27rem;">
         <img :src="'https://image.tmdb.org/t/p/w342'+ movieInfo.poster_path" class="card-img" alt="">
         <div class="hoverOp card-img-overlay">
             <h5 class="fs-5 card-title">{{ movieInfo.title || movieInfo.name }}</h5>
@@ -16,7 +16,7 @@
             </div>
             <div class="card-text">
                 <p class="lh-1 m-0">Overview:</p>
-                <div class="lh-1">{{ movieInfo.overview }}</div>
+                <div class="lh-1 ">{{ clipText(movieInfo.overview, 310) }}</div>
             </div>
         </div>
     </div>
@@ -31,6 +31,13 @@
         methods: {
             getImageUrl(name) {
                 return new URL(`../assets/img/flags/${name}.png`, import.meta.url).href;
+            },
+            clipText(text, maxChars) {
+                if (text.length > maxChars) {
+                    return text.slice(0, maxChars) + '...';
+                } else {
+                    return text;
+                }
             }
         },
     }
