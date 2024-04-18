@@ -1,5 +1,5 @@
 <template>
-    <div class="container d-flex flex-wrap justify-content-center gap-2">
+    <div class="container d-flex flex-wrap justify-content-center gap-2 bg-dark p-5">
         <AppCard v-for="movie in store.moviesArray" :movieInfo="movie"></AppCard>
     </div>
 </template>

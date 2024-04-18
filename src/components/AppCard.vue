@@ -1,15 +1,12 @@
 <template>
-    <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="...">
-        <div class="card-body">
+    <div class="card text-white" style="width: 18rem;">
+        <img :src="'https://image.tmdb.org/t/p/w342'+ movieInfo.poster_path" class="card-img" alt="...">
+        <div class="card-img-overlay">
             <h5 class="card-title">{{ movieInfo.title }}</h5>
-            <p class="card-text"></p>
+            <p class="card-text">Titolo Originale: {{ movieInfo.original_title }}</p>
+            <p class="card-text">Lingua originale: {{ movieInfo.original_language }}</p>
+            <p class="card-text">Voto medio: {{ movieInfo.vote_average }}</p>
         </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Titolo Originale: {{ movieInfo.original_title }}</li>
-            <li class="list-group-item">Lingua originale: {{ movieInfo.original_language }}</li>
-            <li class="list-group-item">Voto medio: {{ movieInfo.vote_average }}</li>
-        </ul>
     </div>
 </template>
 
@@ -18,7 +15,7 @@
         name: 'AppCard',
         props: {
             movieInfo: Object
-        },
+        }
     }
 </script>
 
