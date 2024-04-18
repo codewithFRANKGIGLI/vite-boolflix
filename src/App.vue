@@ -1,5 +1,5 @@
 <template>
-    <AppHeader @searchClick="getMoviesFromApi(), getSeriesFromApi()"></AppHeader>
+    <AppHeader @keyup.enter="getMoviesFromApi(), getSeriesFromApi()" @searchClick="getMoviesFromApi(), getSeriesFromApi()"></AppHeader>
     <AppMain></AppMain>
 </template>
 
